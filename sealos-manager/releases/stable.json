@@ -1,0 +1,10 @@
+{
+        "latest":        "0.8.8-beta",
+        "0.8.8-beta": {
+                "release_date": "2019-02-14 09:21:17+00:00",
+                "release_notes": "SealOS Manager v0.8.8-beta",
+                "armv6-url": "https://github.com/opendevices/packages/raw/master/sealos-manager/releases/sealos-manager-latest-arm6.zip",
+                "armv7-url": "https://github.com/opendevices/packages/raw/master/sealos-manager/releases/sealos-manager-latest-arm7.zip",
+                "amd64-url": "https://github.com/opendevices/packages/raw/master/sealos-manager/releases/sealos-manager-latest-amd64.zip"
+        }
+}
