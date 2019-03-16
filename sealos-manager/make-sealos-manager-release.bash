@@ -50,12 +50,6 @@ main() {
                 else
                         VERSION=$(cat $latest_stable)
                 fi
-        else
-                if [ "$STABLE" != "true" ]; then
-                        patch_latest_file $latest_beta
-                else
-                        patch_latest_file $latest_stable
-                fi
         fi
 
         for arch in $SUPPORTED_ARCHS
@@ -68,8 +62,18 @@ main() {
                         git add $MANAGER_PATH
                         echo "Release: writing url ${download_url}${MANAGER_PATH}"
                         echo -n "${download_url}${MANAGER_PATH}" > "releases/sealos-manager-latest-$arch.link"
+                else
+                        echo "Release: Error: could not find manager version $VERSION arch $arch"
+                        exit 2
                 fi
         done
+
+        # delaying patching
+        if [ "$STABLE" != "true" ]; then
+                patch_latest_file $latest_beta
+        else
+                patch_latest_file $latest_stable
+        fi
 
         echo
         git commit -s -m "manager:release: update release files" -a
