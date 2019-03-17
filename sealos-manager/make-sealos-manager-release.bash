@@ -60,8 +60,13 @@ main() {
                 if [ ! -z "$MANAGER_PATH" ]; then
                         echo "Release: found $MANAGER_PATH"
                         git add $MANAGER_PATH
-                        echo "Release: writing url ${download_url}${MANAGER_PATH}"
-                        echo -n "${download_url}${MANAGER_PATH}" > "releases/sealos-manager-latest-$arch.link"
+                        if [ "$STABLE" != "true" ]; then
+                                echo "Release: writing url 'beta' ${download_url}${MANAGER_PATH}"
+                                echo -n "${download_url}${MANAGER_PATH}" > "releases/sealos-manager-latest-beta-$arch.link"
+                        else
+                                echo "Release: writing url 'stable' ${download_url}${MANAGER_PATH}"
+                                echo -n "${download_url}${MANAGER_PATH}" > "releases/sealos-manager-latest-$arch.link"
+                        fi
                 else
                         echo "Release: Error: could not find manager version $VERSION arch $arch"
                         exit 2
@@ -70,13 +75,15 @@ main() {
 
         # delaying patching
         if [ "$STABLE" != "true" ]; then
+                BRANCH="beta"
                 patch_latest_file $latest_beta
         else
+                BRANCH="stable"
                 patch_latest_file $latest_stable
         fi
 
         echo
-        git commit -s -m "manager:release: update release files" -a
+        git commit -s -m "manager:release: update branch '$BRANCH' release files" -a
 
         echo
         git push -u origin master
