@@ -42,10 +42,14 @@ main() {
                 VERSION=${RELEASE}
         fi
 
+        if [ -z "${STABLE}" ]; then
+                STABLE=${stable}
+        fi
+
         if [ -z ${VERSION} ]; then
                 # read release version from latest-files
                 echo "Release: release environment var is not set, reading from latest-files"
-                if [ "$STABLE" != "true" ]; then
+                if [ "$stable" != "true" ]; then
                         VERSION=$(cat $latest_beta)
                 else
                         VERSION=$(cat $latest_stable)
