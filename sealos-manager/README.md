@@ -1,5 +1,9 @@
 # Release directory
 
+To publish a new `sealos-manager` release just run the make release
+script from this directory.
+
+
 * Files `stable.json` and `beta.json` contain feed release to be consumed
 later from other tools.
 
