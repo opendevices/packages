@@ -73,7 +73,6 @@ main() {
                         fi
                 else
                         echo "Release: Error: could not find manager version $VERSION arch $arch"
-                        exit 2
                 fi
         done
 
