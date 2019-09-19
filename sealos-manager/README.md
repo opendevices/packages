@@ -1,7 +1,10 @@
 # Release directory
 
-To publish a new `sealos-manager` release just run the make release
-script from this directory.
+To publish a new `sealos-manager` release
+
+1. Add sealos manager corresponding zipped versions into directory "v0.1" in download/beta/v0.1/ 
+
+2. Run the make release script from this directory.
 
 ## Stable release
 
