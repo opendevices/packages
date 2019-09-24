@@ -21,7 +21,11 @@ declare latest_stable="releases/latest-stable"
 declare latest_beta="releases/latest-beta"
 declare MANAGER_PATH=""
 declare SUPPORTED_ARCHS="arm6 arm7 amd64"
+declare -a MANAGERS_PATHS
 
+
+# For Uploading sealos manager lets continue to use github
+# *DO NOT USE our servers unless you ask a maintainer*
 declare download_url="https://raw.githubusercontent.com/opendevices/packages/master/sealos-manager/"
 
 get_manager_path() {
@@ -61,9 +65,13 @@ main() {
                 echo
                 echo "Release manager: looking for $arch release $VERSION"
                 get_manager_path $arch
+
                 if [ ! -z "$MANAGER_PATH" ]; then
+
                         echo "Release: found $MANAGER_PATH"
                         git add $MANAGER_PATH
+                        MANAGERS_PATHS[0] = $MANAGER_PATH
+
                         if [ "$STABLE" != "true" ]; then
                                 echo "Release: writing url 'beta' ${download_url}${MANAGER_PATH}"
                                 echo -n "${download_url}${MANAGER_PATH}" > "releases/sealos-manager-latest-beta-$arch.link"
@@ -90,6 +98,11 @@ main() {
 
         echo
         git push -u origin master
+
+        export BRANCH=$BRANCH
+        export VERSION=$VERSION
+        export MANAGERS_PATHS=$MANAGERS_PATHS
+        ./deploy_sealos_manager.bash
 }
 
 main
