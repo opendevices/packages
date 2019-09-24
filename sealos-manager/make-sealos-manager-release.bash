@@ -102,6 +102,8 @@ main() {
         export BRANCH=$BRANCH
         export VERSION=$VERSION
         export MANAGERS_PATHS=$MANAGERS_PATHS
+        echo $MANAGERS_PATHS
+        exit 0
         ./deploy_sealos_manager.bash
 }
 
