@@ -70,7 +70,7 @@ main() {
 
                         echo "Release: found $MANAGER_PATH"
                         git add $MANAGER_PATH
-                        MANAGERS_PATHS[0] = $MANAGER_PATH
+                        MANAGERS_PATHS+=($MANAGER_PATH)
 
                         if [ "$STABLE" != "true" ]; then
                                 echo "Release: writing url 'beta' ${download_url}${MANAGER_PATH}"
