@@ -1,0 +1,3 @@
+export TARGET="sealos-manager"
+export SERVER="build-os.ionoid.net"
+export SSHPORT=339
