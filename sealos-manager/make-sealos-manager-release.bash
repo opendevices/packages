@@ -67,7 +67,7 @@ main() {
                 get_manager_path $arch
 
                 if [ ! -z "$MANAGER_PATH" ]; then
-
+                        MANAGER_PATH="${MANAGER_PATH:2}"
                         echo "Release: found $MANAGER_PATH"
                         git add $MANAGER_PATH
                         MANAGERS_PATHS+=($MANAGER_PATH)
@@ -101,9 +101,7 @@ main() {
 
         export BRANCH=$BRANCH
         export VERSION=$VERSION
-        export MANAGERS_PATHS=$MANAGERS_PATHS
-        echo $MANAGERS_PATHS
-        exit 0
+        export FILES=${MANAGERS_PATHS[@]}
         ./deploy_sealos_manager.bash
 }
 
