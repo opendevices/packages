@@ -102,7 +102,7 @@ main() {
         export BRANCH=$BRANCH
         export VERSION=$VERSION
         export FILES=${MANAGERS_PATHS[@]}
-        ./deploy_sealos_manager.bash
+        ./deploy_sealos_manager_to_build_os.bash
 }
 
 main
