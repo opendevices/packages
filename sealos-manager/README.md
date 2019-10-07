@@ -4,18 +4,18 @@ To publish a new `sealos-manager` release
 
 1. Add sealos manager corresponding zipped versions into directory "v0.1" in download/beta/v0.1/ 
 
-2. Run the make release script from this directory.
+2. Run the `deploy.bash` release script from this directory.
 
 ## Stable release
 
 ```bash
-release="version" stable="true" ./make-sealos-manager-release.bash
+release="$version" stable="true" ./deploy.bash
 ```
 
 ## Beta release
 
 ```bash
-release="version" ./make-sealos-manager-release.bash
+release="$version" ./deploy.bash
 ```
 
 
