@@ -1,3 +1,3 @@
 # Open Devices IoT Packages
 
-Copyright 2018. All rights reserved.
+Copyright 2019. All rights reserved.
