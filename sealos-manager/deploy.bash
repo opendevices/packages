@@ -31,7 +31,7 @@ declare download_url="https://raw.githubusercontent.com/opendevices/packages/mas
 get_manager_path() {
         ver=$VERSION
         arch=$1
-        MANAGER_PATH=$(find ./ -name "*$ver*${arch}*zip" -print)
+        MANAGER_PATH=$(find ./download/$BRANCH -name "*$ver*${arch}*zip" -print)
 }
 
 patch_latest_file() {
@@ -48,6 +48,12 @@ main() {
 
         if [ -z "${STABLE}" ]; then
                 STABLE=${stable}
+        fi
+
+        if [ "$STABLE" != "true" ]; then
+                BRANCH="beta"
+        else
+                BRANCH="stable"
         fi
 
         if [ -z ${VERSION} ]; then
@@ -86,10 +92,8 @@ main() {
 
         # delaying patching
         if [ "$STABLE" != "true" ]; then
-                BRANCH="beta"
                 patch_latest_file $latest_beta
         else
-                BRANCH="stable"
                 patch_latest_file $latest_stable
         fi
 
