@@ -79,6 +79,6 @@ https://packages.sdk.ionoid.net/sealos/releases/stable/$MACHINE_ID/production/ra
 ```
 
 ```
-cat https://packages.sdk.ionoid.net/sealos/releases/beta/$MACHINE_ID/production/rauc-full-update/20200804071141/rauc-last-version.link
-https://packages.sdk.ionoid.net/sealos/releases/beta/$MACHINE_ID/production/rauc-full-update/$RAUC_VERSION/sealos-bundle-$MACHINE_ID-$RAUC_VERSION.raucb
+cat https://packages.sdk.ionoid.net/sealos/releases/stable/$MACHINE_ID/development/rauc-full-update/20200804071141/rauc-last-version.link
+https://packages.sdk.ionoid.net/sealos/releases/stable/$MACHINE_ID/development/rauc-full-update/$RAUC_VERSION/sealos-bundle-$MACHINE_ID-$RAUC_VERSION.raucb
 ```
