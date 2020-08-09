@@ -20,7 +20,7 @@ releases/stable/$MACHINE_ID/development/
 Where that one is the $VARIANT_ID contains either "development" or "production" string:
 https://github.com/opendevices/meta-sealos/issues/6
 
-Development means root ssh enabled without password etc...
+Development means remote root ssh enabled without password, where in production it is disabled, only ssh keys.
 
 For paying customers we should go only with stable production base line. For development we should go with development
 base line.
@@ -46,7 +46,7 @@ This is used to compare if current version has to be upgraded or not.
 
 ### 3. Upload new rauc bundles here:
 
-Example we made a new rauc bundle: `sealos-bundle-minimal-raspberrypi-cm3-20200804071141.raucb`
+Example we made a new rauc bundle: `sealos-bundle-raspberrypi-cm3-20200804071141.raucb`
 
 so: `MACHINE_ID="rasbperrypi-cm3"  and  RAUC_VERSION="20200804071141"`
 
