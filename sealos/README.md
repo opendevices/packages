@@ -7,9 +7,10 @@ them.
 
 To publish new SealOS versions and rauc bundle updates, please follow this guide:
 
-1. Create two directories here `stable` and `beta`
+### 1. Stable and beta directories
 
-2. Inside each directory two files:
+Create directories here `stable` and `beta`
+
 ```
 releases/beta/$MACHINE_ID/development/
 releases/stable/$MACHINE_ID/production/
@@ -25,25 +26,25 @@ For paying customers we should go only with stable production base line. For dev
 base line.
 
 
-3. Inside these paths update the:
+### 2. SealOS last version files
 
-**From this step 3 and next steps have to be repeted each new release**
+**From this step 2 and next steps have to be repeted each new release**
 
-Example VERSION_ID="2.6.4" inside `/etc/os-release`
+Example VERSION_ID="2.6.4" inside `/etc/os-release`, inside previous paths update the:
 
 ```
 releases/stable/$MACHINE_ID/production/sealos-last-version
 releases/stable/$MACHINE_ID/development/sealos-last-version
 ```
 
-Write inside those files last **"2.6.4"**  that is inside: `/etc/os-release` directly **without** `VERSION_ID=`.
+Write inside those files last **2.6.4**  that is inside: `/etc/os-release` directly **without** `VERSION_ID=`.
 The VERSION_ID is semver format, the major is updated only on major changes, MINOR and PATCH should be updated of course
 each new rauc bundle release if it is necessary.
 
 This is used to compare if current version has to be upgraded or not.
 
 
-4. Upload new rauc bundles here:
+### 3. Upload new rauc bundles here:
 
 Example we made a new rauc bundle: `sealos-bundle-minimal-raspberrypi-cm3-20200804071141.raucb`
 
@@ -64,9 +65,10 @@ releases/stable/$MACHINE_ID/production/rauc-full-update/$RAUC_VERSION/sealos-bun
 ```
 
 
-5. Point download links to new rauc update bundles:
+### 4. Update download links
 
-Then create also the following files:
+Point download links to new rauc update bundles, by creating the following files:
+
 ```
 releases/stable/$MACHINE_ID/production/rauc-full-update/20200804071141/rauc-last-version.link
 releases/stable/$MACHINE_ID/development/rauc-full-update/20200804071141/rauc-last-version.link
