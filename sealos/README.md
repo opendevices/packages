@@ -9,6 +9,8 @@ To publish new SealOS versions and rauc bundle updates, please follow this guide
 
 ### 1. Stable and beta directories
 
+MACHINE_ID should be set in /etc/os-release, example: "raspberrypi-cm3"
+
 Create directories here `stable` and `beta`
 
 ```
@@ -50,15 +52,15 @@ Example we made a new rauc bundle: `sealos-bundle-raspberrypi-cm3-20200804071141
 
 so: `MACHINE_ID="rasbperrypi-cm3"  and  RAUC_VERSION="20200804071141"`
 
+
+Create file rauc-last-version with **20200804071141** inside
 ```
-# Create file last-version with 20200804071141 inside
 releases/stable/$MACHINE_ID/development/rauc-full-update/rauc-last-version
 or
 releases/stable/$MACHINE_ID/production/rauc-full-update/rauc-last-version
 ```
 
 Upload here the rauc bundles:
-
 ```
 releases/stable/$MACHINE_ID/development/rauc-full-update/$RAUC_VERSION/sealos-bundle-$MACHINE_ID-$RAUC_VERSION.raucb
 releases/stable/$MACHINE_ID/production/rauc-full-update/$RAUC_VERSION/sealos-bundle-$MACHINE_ID-$RAUC_VERSION.raucb
